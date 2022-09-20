@@ -1,0 +1,5 @@
+const  GET_POST_SUCCESS = 'GET_POST_SUCCESS';
+
+export {
+    GET_POST_SUCCESS,
+}
