@@ -1,5 +1,4 @@
 /* eslint-disable array-callback-return */
-import * as React from 'react';
 import { Stack } from "@mui/material";
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -10,25 +9,29 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import Comentario from './Comentario';
-import User from './User';
+import Divider from '@mui/material/Divider';
 
 
-const PostDetails = ({ data }) => {
-    const { owner } = data;
+const PostDetails = ({ data, setDataUser, setOpenUser, setOpenComentario, setDataComentario }) => {
+    const { owner,tags } = data;
+    
+
+    const handleOpenUser = (data) => {
+        setDataUser(data);
+        setOpenUser(true);
+    }
+
+    const handleOpenComentario = (data) => {
+        setDataComentario(data);
+        setOpenComentario(true);
+    }
 
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
                 avatar={
-                    <Avatar alt="Remy Sharp" src={owner.picture} />
-                }
-                action={
-                    <IconButton aria-label="settings">
-
-                        <User data={data} />
-                    </IconButton>
-                }
+                    <Avatar alt="Remy Sharp" src={owner.picture} sx={{cursor: 'pointer'}} onClick={()=>handleOpenUser(owner)}/>
+                }                
                 title={`${owner.firstName} ${owner.lastName}`}
             />
             <CardMedia
@@ -38,24 +41,34 @@ const PostDetails = ({ data }) => {
                 alt="Paella dish"
             />
             <CardContent>
-                <Typography variant="body2" color="text.secondary">
 
-                    <Comentario data={data} />
+                <Typography variant="body2" color="text.secondary" sx={{cursor: 'pointer', paddingBottom: 1}} onClick={()=>handleOpenComentario(data.text)}>
+                    {data.text}                   
                 </Typography>
+
+                <Divider />
+                <Typography variant="title2" color="text.secondary" sx={{paddingBottom: 1, paddingTop: 1}}>
+                    Tags                                 
+                </Typography>
+
+                <Stack spacing={0.8} direction="row">
+
+                {
+                 tags.map((tag) => ( <><Typography variant="body2" color="text.secondary" > {tag} </Typography> <Divider orientation="vertical" flexItem /> </>))                 
+                } 
+                </Stack>
+
             </CardContent>
             <CardActions disableSpacing>
                 <Stack spacing={0.5} direction="row">
-                    <IconButton aria-label="add to favorites" >
-                        <ThumbUpIcon />
+                    <IconButton aria-label="add to favorites" size='small' >
+                        <ThumbUpIcon size='small'/>
                     </IconButton>
-                    <Typography sx={{ fontSize: 22 }} color="text.secondary" gutterBottom>
+                    <Typography sx={{ fontSize: 16,  paddingTop: 1,}} color="text.secondary" gutterBottom>
                         {data.likes}
                     </Typography>
                 </Stack>
-            </CardActions>
-            {/* {data.tags.map((index) => {
-       return console.log(index)
-      })}  */}
+            </CardActions>             
         </Card>
     );
 }

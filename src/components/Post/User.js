@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 
-import { useState } from 'react';
+
 import { Stack } from "@mui/material";
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
@@ -8,8 +8,6 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import Avatar from '@mui/material/Avatar';
 
 const style = {
@@ -24,21 +22,15 @@ const style = {
   p: 4,
 };
 
-const User = ({ data }) => {
-  const { owner } = data;
-  const [openComentario, setOpenComentario] = useState(false);
-  const handleOpen = () => setOpenComentario(true);
-  const handleClose = () => setOpenComentario(false);
-
+const User = ({open, setOpen, data }) => {
+  const handleClose = () => setOpen(false);
+console.log(data)
   return (
-    <div>
-      <IconButton aria-label="add to favorites">
-        <VisibilityIcon onClick={handleOpen} />
-      </IconButton>
+    <div>     
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={openComentario}
+        open={open}
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -46,12 +38,12 @@ const User = ({ data }) => {
           timeout: 500,
         }}
       >
-        <Fade in={openComentario}>
+        <Fade in={open}>
           <Box sx={style}>
             <Stack spacing={1} direction="row">
-              <Avatar alt="Remy Sharp" src={owner.picture} />
+              <Avatar alt="Remy Sharp" src={data.picture} />
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                <Chip label={`${owner.firstName} ${owner.lastName}`} />
+                <Chip label={`${data.firstName} ${data.lastName}`} />
               </Typography>
             </Stack>
           </Box>

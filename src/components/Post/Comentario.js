@@ -1,10 +1,8 @@
 
-import {useState} from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -22,20 +20,16 @@ const style = {
   p: 4,
 };
 
-  const Comentario = ({data}) => {
-  const [openComentario, setOpenComentario] = useState(false);
-  const handleOpen = () => setOpenComentario(true);
-  const handleClose = () => setOpenComentario(false);
+  const Comentario = ({open, setOpen, data}) => {
+    const handleClose = () => setOpen(false);
 
   return (
     <div>
-        <IconButton aria-label="add to favorites">
-        <VisibilityIcon onClick={handleOpen}/>
-      </IconButton>        
+             
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={openComentario}
+        open={open}
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -43,12 +37,10 @@ const style = {
           timeout: 500,
         }}
       >
-        <Fade in={openComentario}>
-          <Box sx={style}>          
-
-            <Chip label="Comentario"/>
+        <Fade in={open}>
+          <Box sx={style}>     
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-            {data.text}
+            {data}
             </Typography>
           </Box>
         </Fade>
