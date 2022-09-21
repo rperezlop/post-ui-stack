@@ -10,6 +10,5 @@ export const POST_INITIAL_STATE = {
    
   };
 
-  ///Preguntar si aqui va las propiedades que se va arenderizar en el post
 
   

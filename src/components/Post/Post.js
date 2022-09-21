@@ -19,8 +19,6 @@ const Post = () => {
   const [dataUser, setDataUser] = useState({firstName:'',lastName:'',picture:''});
   const [dataComentario, setDataComentario] = useState('');
 
-  console.log('data del post', data);
-
   useEffect(() => {
 
     dispatch(fetchPost());
