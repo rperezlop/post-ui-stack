@@ -1,9 +1,12 @@
-
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
+import {shallowEqual, useDispatch, useSelector} from "react-redux";
+import {getComment, getOpenComment} from "../selectors/post";
+import {openComments} from "../actions/post";
+
 
 
 const style = {
@@ -18,8 +21,11 @@ const style = {
   p: 4,
 };
 
-  const Comentario = ({open, setOpen, data}) => {
-    const handleClose = () => setOpen(false);
+  const Comentario = () => {
+    const dispatch = useDispatch();
+    const comment = useSelector(getComment, shallowEqual);
+    const open = useSelector(getOpenComment, shallowEqual);
+    const handleClose = () =>  dispatch(openComments(false));
 
   return (
     <div>
@@ -38,7 +44,7 @@ const style = {
         <Fade in={open}>
           <Box sx={style}>     
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-            {data}
+            {comment}
             </Typography>
           </Box>
         </Fade>

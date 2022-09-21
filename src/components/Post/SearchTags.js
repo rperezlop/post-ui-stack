@@ -46,7 +46,7 @@ const SearchCustom = styled('div')(({ theme }) => ({
   }))
   
   const SearchTags = ({placeholder, setFilterFn, searchBy}) => {
-    
+
     const handleSearch = (event) => {
       const target = event.target;
       setFilterFn({
@@ -54,7 +54,15 @@ const SearchCustom = styled('div')(({ theme }) => ({
           if (target.value === '') {
             return data;
           } else {
-            return data.filter(row => row[searchBy].toString().toLowerCase().includes(target.value.toLowerCase()))
+            return data.reduce((result, element) => {
+              if(element[searchBy]) {
+                const tag = element[searchBy].some(tag => tag.toString().toLowerCase().includes(target.value.toLowerCase()));
+                if(tag) {
+                  result.push(element)
+                }
+              }
+              return result;
+            },[]);
           }
         }
       })

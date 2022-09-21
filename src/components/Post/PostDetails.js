@@ -10,21 +10,22 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Divider from '@mui/material/Divider';
+import {comments, openComments, openUserInfo, userInfo} from '../actions/post';
+import {useDispatch} from "react-redux";
 
 
-const PostDetails = ({ data, setDataUser, setOpenUser, setOpenComentario, setDataComentario }) => {
+const PostDetails = ({ data }) => {
+  const dispatch = useDispatch();
     const { owner,tags } = data;
-    
-    
 
     const handleOpenUser = (data) => {
-        setDataUser(data);
-        setOpenUser(true);
+      dispatch(userInfo(data));
+      dispatch(openUserInfo(true));
     }
 
-    const handleOpenComentario = (data) => {
-        setDataComentario(data);
-        setOpenComentario(true);
+    const handleOpenComments = (data) => {
+      dispatch(comments(data));
+      dispatch(openComments(true));
     }
 
     return (
@@ -43,7 +44,7 @@ const PostDetails = ({ data, setDataUser, setOpenUser, setOpenComentario, setDat
             />
             <CardContent>
 
-                <Typography variant="body2" color="text.secondary" sx={{cursor: 'pointer', paddingBottom: 1}} onClick={()=>handleOpenComentario(data.text)}>
+                <Typography variant="body2" color="text.secondary" sx={{cursor: 'pointer', paddingBottom: 1}} onClick={()=>handleOpenComments(data.text)}>
                     {data.text}                   
                 </Typography>
 
@@ -55,7 +56,12 @@ const PostDetails = ({ data, setDataUser, setOpenUser, setOpenComentario, setDat
                 <Stack spacing={0.8} direction="row">
 
                 {
-                 tags.map((tag) => ( <><Typography variant="body2" color="text.secondary" > {tag} </Typography> <Divider orientation="vertical" flexItem /> </>))                 
+                 tags.map((tag, index) => (
+                   <div key={`${index}-${tag}`}>
+                     <Typography variant="body2" color="text.secondary" > {tag} </Typography>
+                     <Divider orientation="vertical" flexItem />
+                   </div>
+                 ))
                 } 
                 </Stack>
 

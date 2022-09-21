@@ -7,6 +7,9 @@ import Fade from '@mui/material/Fade';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
+import {shallowEqual, useDispatch, useSelector} from "react-redux";
+import {getOpenUserInfo, getUserInfo} from "../selectors/post";
+import {openUserInfo} from "../actions/post";
 
 const style = {
   position: 'absolute',
@@ -20,9 +23,13 @@ const style = {
   p: 4,
 };
 
-const User = ({open, setOpen, data }) => {
-  const handleClose = () => setOpen(false);
-console.log(data)
+const User = () => {
+  const dispatch = useDispatch();
+  const info = useSelector(getUserInfo, shallowEqual);
+  const open = useSelector(getOpenUserInfo, shallowEqual);
+
+  const handleClose = () =>  dispatch(openUserInfo(false));
+
   return (
     <div>     
       <Modal
@@ -39,9 +46,9 @@ console.log(data)
         <Fade in={open}>
           <Box sx={style}>
             <Stack spacing={1} direction="row">
-              <Avatar alt="Remy Sharp" src={data.picture} />
+              <Avatar alt="Remy Sharp" src={info.picture} />
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                <Chip label={`${data.firstName} ${data.lastName}`} />
+                <Chip label={`${info.firstName} ${info.lastName}`} />
               </Typography>
             </Stack>
           </Box>
