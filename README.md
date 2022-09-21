@@ -18,4 +18,6 @@ Para el inicio de sesión se está consumiendo los servicios de auth0,
 framework React con redux”
 Despliegue es en netlify
 ```
-
+```bash
+Nota: La rama es main 
+```
