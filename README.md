@@ -3,7 +3,7 @@
 
 ## ejecutar los siguinetes scripts en directorio de el proyecto
 
-
+###  `clone el repositorio`
 ### `npm install`
 ### `npm start`
 
