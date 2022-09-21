@@ -9,7 +9,7 @@ import { getPost } from '../selectors/post';
 import PostDetails from './PostDetails';
 import User from './User';
 import Comentario from './Comentario';
-
+import SearchTags from './SearchTags';
 
 const Post = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,11 @@ const Post = () => {
   const [openComentario, setOpenComentario] = useState(false);
   const [dataUser, setDataUser] = useState({firstName:'',lastName:'',picture:''});
   const [dataComentario, setDataComentario] = useState('');
+  const [filterFn, setFilterFn] = useState({
+    fn: data => {
+      return data;
+    }
+  });
 
   useEffect(() => {
 
@@ -28,10 +33,16 @@ const Post = () => {
   return (
     <Container>
       <h1>POST</h1>
+      <SearchTags
+              setFilterFn={setFilterFn}
+              searchBy={'tags'}
+              placeholder={'tags...'} />
+      
       <>     
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>              
 
-          {data?.map((post) => {
+          {
+            filterFn.fn(data).map((post) => {
             return (
               <Grid item xs={4}>
                 <PostDetails 
@@ -43,9 +54,12 @@ const Post = () => {
                  />
 
               </Grid>
+              
             )
-
+            
           })}
+
+         
 
         </Grid>
         <User 
@@ -59,6 +73,7 @@ const Post = () => {
         setOpen={setOpenComentario} 
         data={dataComentario} 
         />
+        
       </>
     </Container>
   );

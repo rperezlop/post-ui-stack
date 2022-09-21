@@ -15,6 +15,7 @@ import Divider from '@mui/material/Divider';
 const PostDetails = ({ data, setDataUser, setOpenUser, setOpenComentario, setDataComentario }) => {
     const { owner,tags } = data;
     
+    
 
     const handleOpenUser = (data) => {
         setDataUser(data);
