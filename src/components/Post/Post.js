@@ -25,8 +25,7 @@ const Post = () => {
   return (
     <Container>
       <>
-        <h1>POST</h1>
-
+     
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
           {data?.map((post) => {
