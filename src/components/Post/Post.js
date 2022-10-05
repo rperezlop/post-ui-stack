@@ -49,7 +49,6 @@ const Post = () => {
             
           })}
 
-         
 
         </Grid>
         <User />

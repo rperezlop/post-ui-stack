@@ -4,7 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 
-const LogoutButton = () => {
+const Logout= () => {
     const { logout, user, isAuthenticated, isLoading } = useAuth0();
     if (isLoading) {
         return <div>Loading ...</div>;
@@ -15,8 +15,7 @@ const LogoutButton = () => {
             <div>
                 <Stack direction="row" spacing={2}>
                     <Chip
-                        avatar={<Avatar alt="Natacha" size='medium' src={user.picture} />}
-                        label={user.name}
+                        avatar={<Avatar alt="Natacha" size='medium' src={user.picture} />}                       
                         variant="outlined"
                         sx={{
                             color: '#FFFFFF',
@@ -40,4 +39,4 @@ const LogoutButton = () => {
     );
 };
 
-export default LogoutButton;
+export default Logout;
