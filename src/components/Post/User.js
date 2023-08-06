@@ -8,8 +8,8 @@ import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
-import {getOpenUserInfo, getUserInfo} from "../selectors/post";
-import {openUserInfo} from "../actions/post";
+import {getOpenUserInfo, getUserInfo} from "../../redux/selectors/post";
+import {openUserInfo} from "../../redux/actions/post";
 
 const style = {
   position: 'absolute',

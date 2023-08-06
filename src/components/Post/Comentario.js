@@ -4,8 +4,8 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
-import {getComment, getOpenComment} from "../selectors/post";
-import {openComments} from "../actions/post";
+import {getComment, getOpenComment} from "../../redux/selectors/post";
+import {openComments} from "../../redux/actions/post";
 
 
 

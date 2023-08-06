@@ -3,8 +3,8 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import {shallowEqual, useDispatch, useSelector} from 'react-redux';
 import { useEffect } from 'react';
-import { fetchPost } from '../actions/post';
-import { getPost } from '../selectors/post';
+import { fetchPost } from '../../redux/actions/post';
+import { getPost } from '../../redux/selectors/post';
 import PostDetails from './PostDetails';
 import User from './User';
 import Comentario from './Comentario';
@@ -24,7 +24,7 @@ const Post = () => {
     dispatch(fetchPost());
 
   }, [dispatch])
-
+  console.log('data',data)
   return (
     <Container>
       <h1>POST</h1>
