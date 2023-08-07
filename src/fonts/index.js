@@ -19,7 +19,7 @@ export const bold = {
   fontWeight: 'normal',
   src: `
     local('Basis Grotesque Pro Bold'),
-    url(${BasisGrotesqueBoldProWoff})
+    url(${BasisGrotesqueProWoff})
     format('woff')
   `,
 };

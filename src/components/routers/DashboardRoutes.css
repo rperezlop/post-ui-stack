@@ -1,0 +1,29 @@
+/*
+
+
+
+!*.principal {*!
+!*    display: flex;*!
+!*    padding: 1px 2px;*!
+!*    background-color: #61dafb;*!
+!*    border-radius: 1px;*!
+!*}*!
+
+.rafa{
+
+    text-align: center;
+    background-color: #61dafb;
+}
+!*.container{*!
+!*    !*width: 90%;*!*!
+!*    !*max-width: 1200px;*!*!
+!*    !*overflow: hidden;*!*!
+!*    !*margin: 0 auto;*!*!
+!*    !*outline: 1px solid #61dafb;*!*!
+!*    margin-left: 20px;*!
+!*}*!
+
+.body {
+    background-color: #1689a6 ;
+}
+*/

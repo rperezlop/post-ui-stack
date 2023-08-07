@@ -5,16 +5,16 @@ import {regular, bold} from './fonts';
 const theme = createTheme({
   palette: {
     primary: {
-      light: deepPurple[100],
-      main: deepPurple[500],
-      dark: deepPurple[800],
+      light: teal[100],
+      main: teal[500],
+      dark: teal[800],
       contrastText: '#FFFFFF',
       veryLight: blueGrey['A100'],
     },
     secondary: {
-      light: deepPurple[100],
-      main: deepPurple[500],
-      dark: deepPurple[800],
+      light: teal[100],
+      main: teal[500],
+      dark: teal[800],
       contrastText: '#FFFFFF',
     },
     neutral: {

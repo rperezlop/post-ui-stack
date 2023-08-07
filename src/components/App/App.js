@@ -6,6 +6,8 @@ import Post from "../Post";
 import {ThemeProvider} from "@mui/material";
 import theme from "../../theme";
 import ToastMessage from "../../commonComponents/ToastMessage";
+import Home from "../Home";
+import AppRoutes from "../routers";
 
 const App = () => {
   return (
@@ -16,7 +18,8 @@ const App = () => {
             <AppRoutes/>
           </Suspense>
           <ToastMessage/>*/}
-      <Post></Post>
+      <AppRoutes/>
+
      <ToastMessage/>
         </ThemeProvider>
       </Provider>
