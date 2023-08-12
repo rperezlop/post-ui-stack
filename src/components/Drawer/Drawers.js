@@ -6,6 +6,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import {useUser} from "../../context/userContext";
+import {useTheme} from '@mui/material/styles';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
@@ -20,48 +22,41 @@ export const listDrawer = [
     path: '/home'
   },
   {
-    text: 'Lab-Perros',
+    text: 'RECEPCIÓN',
     icon: 'users',
     path: '/perros',
     children: [
       {
         id: 3,
-        title: 'HEMOGRAMA',
+        title: 'Registrar',
         icon: 'personAdd',
         path: '/perros',
         titleToolbar: 'Gestión de usuarios'
       },
       {
         id: 4,
-        title: 'Bloqueados',
+        title: 'Salida',
         icon: 'lock',
         path: '/users',
         titleToolbar: 'Usuarios bloqueados'
       },
-      {
-        id: 5,
-        title: 'Asignar servicio',
-        icon: 'AddServiceToUserIcon',
-        path: '/users',
-        titleToolbar: 'Asignar servicio a usuario'
-      }
     ]
   },
   {
-    text: 'LAB-GATOS',
+    text: 'VETERINARIOS',
     icon: 'home',
     path: '/home',
     children: [
       {
         id: 3,
-        title: 'HEMOGRAMA',
+        title: 'Vacunación ',
         icon: 'personAdd',
-        path: '/perros',
+        path: '/vacunas',
         titleToolbar: 'Gestión de usuarios'
       },
       {
         id: 4,
-        title: 'Bloqueados',
+        title: 'Historias',
         icon: 'lock',
         path: '/users',
         titleToolbar: 'Usuarios bloqueados'
@@ -95,6 +90,8 @@ function NestedList({ item }) {
 }
 
 export default function Drawers () {
+  const {logout} = useUser();
+  const theme = useTheme();
   const [open, setOpen] = useState(false);
 
   const handleToggle = () => {
@@ -102,8 +99,8 @@ export default function Drawers () {
   };
 
   const handleLogout = () => {
-    // Implementar lógica de cerrar sesión
-  };
+    logout();
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>

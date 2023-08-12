@@ -1,0 +1,27 @@
+[
+  {
+    "userId": 1,
+    "user" : "user1",
+    "password" : "2286"
+  },
+  {
+    "userId": 2,
+    "user" : "user2",
+    "password" : "3121"
+  },
+  {
+    "userId": 3,
+    "user" : "user3",
+    "password" : "123"
+  },
+  {
+    "userId": 4,
+    "user" : "user4",
+    "password" : "1234"
+  },
+  {
+    "userId": 5,
+    "user" : "user5",
+    "password" : "12345"
+  }
+]

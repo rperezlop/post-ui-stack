@@ -1,0 +1,38 @@
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(105vh - 50px);
+
+}
+aside {
+    flex: 30%;
+    background-color: #009688;
+    padding: 20px;
+
+}
+
+aside Typography {
+    text-align: center;
+    color: #ffffff;
+}
+section {
+    flex: 70px;
+    background-color: #ffffff;
+    padding: 20px;
+    color: white;
+}
+
+
+@media screen and (max-width: 700px){
+    aside, .row{
+        flex-direction: column;
+    }
+    aside {
+        display: none;
+    }
+    section {
+        text-align: center;
+        justify-content: center;
+    }
+}

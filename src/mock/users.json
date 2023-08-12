@@ -1,0 +1,40 @@
+[
+  {
+  "id": 1,
+  "name": "Rafa",
+  "lastName": "Perez",
+  "email": "rafa@gamil.com",
+  "phone": "3125331"
+  },
+  {
+    "id": 2,
+    "name": "Juan",
+    "lastName": "Amador",
+    "email": "juan@gamil.com",
+    "phone": "3125331"
+  },
+  {
+    "id": 3,
+    "name": "Marco",
+    "lastName": "Henao",
+    "email":  "juan@gamil.com",
+    "phone": "3125331"
+  },
+  {
+    "id": 4,
+    "name": "Pedro",
+    "lastName": "Rosario",
+    "email": "pedro@gamil.com",
+    "phone": "3125331"
+  },
+  {
+    "id": 5,
+    "name": "Guillermo",
+    "lastName": "Mendez",
+    "email": "guille@gamil.com",
+    "phone": "3125331"
+  }
+]
+
+
+

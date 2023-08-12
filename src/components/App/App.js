@@ -8,6 +8,7 @@ import theme from "../../theme";
 import ToastMessage from "../../commonComponents/ToastMessage";
 import Home from "../Home";
 import AppRoutes from "../routers";
+import {UserProvider} from "../../context/userContext";
 
 const App = () => {
   return (
@@ -18,7 +19,9 @@ const App = () => {
             <AppRoutes/>
           </Suspense>
           <ToastMessage/>*/}
-      <AppRoutes/>
+      <UserProvider>
+        <AppRoutes/>
+      </UserProvider>
 
      <ToastMessage/>
         </ThemeProvider>

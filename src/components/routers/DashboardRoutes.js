@@ -6,6 +6,7 @@ import Home from "../Home/Home";
 import './DashboardRoutes.css';
 import Perros from "../Perros";
 import Box from "@mui/material/Box";
+import Vacunas from "../Vacunacion";
 
 
 export const DashboardRoutes = () => {
@@ -18,7 +19,8 @@ export const DashboardRoutes = () => {
         <Route index path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/perros" element={<Perros/>}/>
-       {/* <Route path="/users" element={<Users/>}/>*/}
+        <Route path="/vacunas" element={<Vacunas/>}/>
+        {/* <Route path="/users" element={<Users/>}/>*/}
         <Route path='*' element={<Navigate replace to='/'/>}/>
       </Routes>
       </Box>

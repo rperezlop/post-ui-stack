@@ -1,11 +1,11 @@
 import {Navigate} from 'react-router-dom';
-/*import {useUser} from "../context/userContext";*/
+import {useUser} from "../../context/userContext";
 import './DashboardRoutes.css';
 
 export const PrivateRoute = ({ children }) => {
-  /*  const { session } = useUser();*/
-const session = true
+   const { session } = useUser();
+
    return session
-        ? children
-        : <Navigate to="/login" />
+     ? children
+     : <Navigate to="/login" />
 }
