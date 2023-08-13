@@ -31,5 +31,6 @@ export const listDrawer = [
         titleToolbar: 'Asignar servicio a usuario'
       }
     ]
-  }
+  },
+
 ];

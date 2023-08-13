@@ -29,9 +29,12 @@ import * as React from "react";
 const Perros = () => {
 
   const [age, setAge] = useState('');
-
+  const [sexo, setSexo] = useState('');
   const handleChange = (event) => {
     setAge(event.target.value);
+  };
+  const handleChangeSexo = (event) => {
+    setSexo(event.target.value);
   };
 
 
@@ -54,15 +57,9 @@ const Perros = () => {
         <br></br>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker/>
-            </LocalizationProvider>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField id="outlined-basic" label="Numero de caso" variant="standard" fullWidth/>
+            <TextField id="outlined-basic" label="Codigo paciente" variant="standard" fullWidth/>
           </Grid>
         </Grid><br></br>
-        <Divider></Divider><br></br>
         <Typography sx={{ml: 3, flex: 1, textAlign: 'center'}} variant="h6" component="div">
         Motivos de ingreso
         </Typography>
@@ -114,16 +111,33 @@ const Perros = () => {
             <TextField id="outlined-basic" label="Especie" variant="standard" fullWidth/>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField id="outlined-basic" label="Eda aproximada" variant="standard" fullWidth/>
+            <TextField id="outlined-basic" label="Edad aproximada" variant="standard" fullWidth/>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField id="outlined-basic" label="Sexo" variant="standard" fullWidth/>
-          </Grid>
+          <FormControl fullWidth variant="standard">
+            <InputLabel id="demo-simple-select-label">Sexo</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={sexo}
+              label="Age"
+              onChange={handleChangeSexo}
+            >
+              <MenuItem value={1}>H</MenuItem>
+              <MenuItem value={2}>M</MenuItem>
+
+            </Select>
+          </FormControl>
+        </Grid>
+
           <Grid item xs={12} sm={4}>
             <TextField id="outlined-basic" label="Color" variant="standard" fullWidth/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField id="outlined-basic" label="Raza" variant="standard" fullWidth/>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <TextField id="outlined-basic" label="Nombre" variant="standard" fullWidth/>
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth variant="standard">
@@ -141,13 +155,14 @@ const Perros = () => {
               </Select>
             </FormControl>
           </Grid>
+          {
+            age !== 1 ? <Grid item xs={12} sm={4}>
+              <TextField disabled id="outlined-basic" label="Fecha de aplicacion" variant="standard" fullWidth/>
+            </Grid> : <Grid item xs={12} sm={4}>
+              <TextField did="outlined-basic" label="Fecha de aplicacion" variant="standard" fullWidth/>
+            </Grid>
+          }
 
-          <Grid item xs={12} sm={4}>
-            <TextField id="outlined-basic" label="Nombre" variant="standard" fullWidth/>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField id="outlined-basic" label="Fecha de aplicacion" variant="standard" fullWidth/>
-          </Grid>
           <Grid item xs={12} sm={4}>
             <TextField id="outlined-basic" label="No de microchip" variant="standard" fullWidth/>
           </Grid>
@@ -156,22 +171,26 @@ const Perros = () => {
         <Typography sx={{ml: 3, flex: 1, textAlign: 'center'}} variant="h6" component="div">
           Motivo de consulta
         </Typography>
-        <Divider></Divider><br></br>
-        <Grid container spacing={3}>
+      <br></br>
+        <Grid container spacing={1}>
           <Grid item xs={12} sm={4}>
             <TextField
               id="standard-multiline-static"
               label="Observacion"
               multiline
               rows={4}
-              variant="standard"
+              style={{ width: '308%' }} // Ajusta el ancho al 100%
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField id="outlined-basic" label="Plazo de ser devuelto 'Dias'" variant="standard" fullWidth/>
-          </Grid>
-        </Grid><br></br>
-          <Grid container spacing={2}>
+        </Grid>
+        <br></br>
+        <Grid container spacing={3}>
+        <Grid item xs={12} sm={4}>
+          <TextField id="outlined-basic" label="Plazo de ser devuelto 'Dias'" variant="standard" fullWidth/>
+        </Grid>
+        </Grid>
+        <br></br>
+      {/*    <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <TextField id="outlined-basic" label="Firma del responsable o solicitante" variant="standard" fullWidth/>
           </Grid>
@@ -182,10 +201,11 @@ const Perros = () => {
           <Grid item xs={12} sm={4}>
             <TextField id="outlined-basic" label="De" variant="standard" fullWidth/>
           </Grid>
-          </Grid><br></br>
+          </Grid>*/}<br></br>
         <Typography sx={{ml: 3, flex: 1, textAlign: 'center'}} variant="h6" component="div">
          Funcionario participante
         </Typography>
+        <br></br>
         <Divider></Divider><br></br>
 
         <Grid container spacing={2}>
@@ -194,10 +214,6 @@ const Perros = () => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField id="outlined-basic" label="Cargo" variant="standard" fullWidth/>
-          </Grid>
-
-          <Grid item xs={12} sm={4}>
-            <TextField id="outlined-basic" label="Firma" variant="standard" fullWidth/>
           </Grid>
         </Grid><br></br>
         <Grid container spacing={3}>

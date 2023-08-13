@@ -5,7 +5,7 @@ import {useUser} from '../../context/userContext';
 import {useNavigate} from "react-router-dom";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import logo from '../Login/ImgSaso/WM-H-white.png';
+import logo from '../Login/ImgSaso/guardia.jpeg';
 
 const Login = () => {
   const navigate = useNavigate();

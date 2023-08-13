@@ -63,6 +63,55 @@ export const listDrawer = [
       },
       ]
   },
+  {
+    text: 'LABORATORIOS',
+    icon: 'home',
+    path: '/hemograma',
+    children: [
+      {
+        id: 3,
+        title: 'Hemograma ',
+        icon: 'personAdd',
+        path: '/hemograma',
+        titleToolbar: 'Gestión de usuarios'
+      },
+      {
+        id: 4,
+        title: 'Quimica sanguinea',
+        icon: 'lock',
+        path: '/users',
+        titleToolbar: 'Usuarios bloqueados'
+      },
+      {
+        id: 4,
+        title: 'Parcial de orina',
+        icon: 'lock',
+        path: '/users',
+        titleToolbar: 'Usuarios bloqueados'
+      },
+      {
+        id: 4,
+        title: 'Cropoanalisis',
+        icon: 'lock',
+        path: '/users',
+        titleToolbar: 'Usuarios bloqueados'
+      },
+      {
+        id: 4,
+        title: 'Trigograma',
+        icon: 'lock',
+        path: '/users',
+        titleToolbar: 'Usuarios bloqueados'
+      },
+      {
+        id: 4,
+        title: 'Citologia auricular',
+        icon: 'lock',
+        path: '/users',
+        titleToolbar: 'Usuarios bloqueados'
+      },
+    ]
+  },
   // More items...
 ];
 
@@ -94,10 +143,20 @@ export default function Drawers () {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
-  const handleToggle = () => {
-    setOpen(!open);
+  const [expandedSections, setExpandedSections] = useState({}); // Nuevo estado
+
+  const handleToggle = (index) => {
+    setExpandedSections((prevExpandedSections) => ({
+      ...prevExpandedSections,
+      [index]: !prevExpandedSections[index],
+    }));
   };
 
+
+ /* const handleToggle = () => {
+    setOpen(!open);
+  };
+*/
   const handleLogout = () => {
     logout();
   }
@@ -149,13 +208,13 @@ export default function Drawers () {
             {listDrawer.map((item, index) => (
               <div key={`${item.text}-${index}`}>
                 {item.children ? (
-                  <ListItem disablePadding onClick={handleToggle}>
+                  <ListItem disablePadding onClick={() => handleToggle(index)}>
                     <ListItemButton>
                       <ListItemIcon>
                         {listIcon[item.icon]}
                       </ListItemIcon>
                       <ListItemText primary={item.text} />
-                      {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                      {expandedSections[index] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                     </ListItemButton>
                   </ListItem>
                 ) : (
@@ -174,7 +233,7 @@ export default function Drawers () {
                   </NavLink>
                 )}
                 {item.children && (
-                  <Collapse in={open} timeout="auto" unmountOnExit>
+                  <Collapse in={expandedSections[index]} timeout="auto" unmountOnExit>
                     <NestedList item={item} />
                   </Collapse>
                 )}

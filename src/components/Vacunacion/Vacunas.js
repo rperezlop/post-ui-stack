@@ -24,13 +24,11 @@ import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {DatePicker} from "@mui/x-date-pickers/DatePicker";
 
 
-
 const Vacunas = () => {
 
 
-
   function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+    return {name, calories, fat, carbs, protein};
   }
 
   const rows = [
@@ -53,30 +51,29 @@ const Vacunas = () => {
     setOpen(false);
   };
 
-  const  prueba = () => {
+  const prueba = () => {
     alert('prueba ')
     handleClose()
   }
 
 
-
   return (
 
-    <Paper sx={{overflow: 'hidden', margin: 2, mt: 10,  height: '85vh'}}>
+    <Paper sx={{overflow: 'hidden', margin: 2, mt: 10, height: '85vh'}}>
       <Container maxWidth="lg" sx={{margin: 1, mt: 4}}>
         <div>
-        <List>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar>
-                <AddIcon/>
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Formato de vacunación" secondary="Gatos/Perros"/>
-          </ListItem>
-        </List>
+          <List>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>
+                  <AddIcon/>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="Formato de vacunación" secondary="Gatos/Perros"/>
+            </ListItem>
+          </List>
           <Divider></Divider>
-        <br></br>
+          <br></br>
           <br></br>
 
           <Button variant="contained" onClick={handleClickOpen}>
@@ -90,7 +87,7 @@ const Vacunas = () => {
             aria-describedby="alert-dialog-description"
           >
 
-            <Toolbar  sx={{ backgroundColor: '#D0D3D4'}}> <Typography sx={{ml: 3, flex: 1, textAlign: 'left'}} variant="h6" component="div">
+            <Toolbar sx={{backgroundColor: '#eceff1'}}> <Typography sx={{ml: 3, flex: 1, textAlign: 'left'}} variant="h6" component="div">
               <DialogTitle id="alert-dialog-title">
                 {"Ingrese los datos"}
               </DialogTitle>
@@ -99,21 +96,13 @@ const Vacunas = () => {
             <DialogContent>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker/>
-                  </LocalizationProvider>
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                  <TextField id="outlined-basic" label="Numero" variant="standard" fullWidth/>
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                  <TextField id="outlined-basic" label="Id paciente" variant="standard" fullWidth/>
+                  <TextField id="outlined-basic" label="Codigo de paciente" variant="standard" fullWidth/>
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <TextField id="outlined-basic" label="Especie" variant="standard" fullWidth/>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <TextField id="outlined-basic" label="Vacunacion" variant="standard" fullWidth/>
+                  <TextField id="outlined-basic" label="Vacuna" defaultValue="rabia" variant="standard" fullWidth/>
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <TextField id="outlined-basic" label="Lote vacuna" variant="standard" fullWidth/>
@@ -125,6 +114,7 @@ const Vacunas = () => {
                     multiline
                     rows={4}
                     variant="standard"
+                    style={{width: '220%'}} // Ajusta el ancho al 100%
                   />
                 </Grid>
 
@@ -140,10 +130,11 @@ const Vacunas = () => {
         </div>
         <br></br>
         <TableContainer component={Paper}>
-          <Toolbar  sx={{ backgroundColor: '#D0D3D4'}}> <Typography sx={{ml: 3, flex: 1, textAlign: 'left'}} variant="h6" component="div">
+          <Toolbar sx={{backgroundColor: '#eceff1'}}> <Typography sx={{ml: 3, flex: 1, textAlign: 'left'}} variant="h6"
+                                                                  component="div">
             Vacunación
           </Typography></Toolbar>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{minWidth: 650}} aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell>Nombre</TableCell>
@@ -159,8 +150,8 @@ const Vacunas = () => {
                 <TableRow
                   key={row.name}
                   sx={{
-                    '&:last-child td, &:last-child th': { border: 0 },
-                    '&:hover': { backgroundColor: 'rgba(0, 0, 0, 0.1)' }, // Cambia el color según tus preferencias
+                    '&:last-child td, &:last-child th': {border: 0},
+                    '&:hover': {backgroundColor: 'rgba(0, 0, 0, 0.1)'}, // Cambia el color según tus preferencias
                     transition: 'background-color 0.3s ease-in-out', // Agrega una transición suave
                   }}
                 >
@@ -184,4 +175,4 @@ const Vacunas = () => {
   )
 }
 
-export default  Vacunas;
+export default Vacunas;
