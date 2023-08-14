@@ -4,10 +4,10 @@ import Drawers from '../Drawer/Drawers';
 import Home from "../Home/Home";
 
 import './DashboardRoutes.css';
-import Perros from "../Perros";
+import Especies from "../Perros";
 import Box from "@mui/material/Box";
 import Vacunas from "../Vacunacion";
-import HemoGramaHemoParasito from "../Laboratorios/HemoGramaHemoParasito";
+import HemograHemoparasito from "../Laboratorios/HemoGramaHemoParasito";
 
 
 export const DashboardRoutes = () => {
@@ -19,9 +19,9 @@ export const DashboardRoutes = () => {
       <Routes>
         <Route index path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
-        <Route path="/perros" element={<Perros/>}/>
+        <Route path="/perros" element={<Especies/>}/>
         <Route path="/vacunas" element={<Vacunas/>}/>
-        <Route path="/hemograma" element={<HemoGramaHemoParasito/>}/>
+        <Route path="/hemograma" element={<HemograHemoparasito/>}/>
 
         {/* <Route path="/users" element={<Users/>}/>*/}
         <Route path='*' element={<Navigate replace to='/'/>}/>

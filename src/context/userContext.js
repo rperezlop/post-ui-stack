@@ -6,10 +6,12 @@ const userContext = React.createContext();
 
 export const UserProvider = (props) => {
   const [session, setSession] = useState(false);
+  const [user, setUser] = useState('');
 
   const login = (data) => {
     const user = usersSession.find(credential => credential.user === data.user && credential.password === data.password)
     if (user) {
+      setUser(user)
       setSession(true)
     } else {
       alert('Contraseña incorrecta')
@@ -22,6 +24,7 @@ export const UserProvider = (props) => {
 
   const value = useMemo(() => {
     return {
+      user,
       session,
       login,
       logout

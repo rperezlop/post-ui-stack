@@ -26,16 +26,22 @@ import SendIcon from '@mui/icons-material/Send';
 import * as React from "react";
 
 
-const Perros = () => {
+const Especies = () => {
 
   const [age, setAge] = useState('');
   const [sexo, setSexo] = useState('');
+  const [especie, setEspecie] = useState('');
   const handleChange = (event) => {
     setAge(event.target.value);
   };
   const handleChangeSexo = (event) => {
     setSexo(event.target.value);
   };
+
+  const handleChangeEspecie= (event) => {
+    setEspecie(event.target.value);
+  };
+
 
 
   return (
@@ -49,7 +55,7 @@ const Perros = () => {
                 <AddIcon/>
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Formato ingreso de paciente" secondary="Gatos/Perros"/>
+            <ListItemText primary="Formato ingreso de paciente" secondary="Gatos/Especies"/>
           </ListItem>
         </List>
         <Divider></Divider>
@@ -108,7 +114,20 @@ const Perros = () => {
         <Divider></Divider><br></br>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
-            <TextField id="outlined-basic" label="Especie" variant="standard" fullWidth/>
+            <FormControl fullWidth variant="standard">
+              <InputLabel id="demo-simple-select-label">Especie</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={especie}
+                label="Age"
+                onChange={handleChangeEspecie}
+              >
+                <MenuItem value={'felinos'}>Felinos</MenuItem>
+                <MenuItem value={'caninos'}>Canino</MenuItem>
+
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField id="outlined-basic" label="Edad aproximada" variant="standard" fullWidth/>
@@ -244,4 +263,4 @@ const Perros = () => {
   )
 }
 
-export default Perros;
+export default Especies;

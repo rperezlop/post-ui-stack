@@ -1,1 +1,1 @@
-export { default } from './HemoGramaHemoParasito';
+export { default } from './HemograHemoparasito';

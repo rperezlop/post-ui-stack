@@ -59,7 +59,7 @@ const Vacunas = () => {
 
   return (
 
-    <Paper sx={{overflow: 'hidden', margin: 2, mt: 10, height: '85vh'}}>
+    <Paper sx={{overflow: 'hidden', margin: 2, mt: 10, height: '100vh'}}>
       <Container maxWidth="lg" sx={{margin: 1, mt: 4}}>
         <div>
           <List>
@@ -69,7 +69,7 @@ const Vacunas = () => {
                   <AddIcon/>
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary="Formato de vacunación" secondary="Gatos/Perros"/>
+              <ListItemText primary="Formato de vacunación" secondary="Gatos/Especies"/>
             </ListItem>
           </List>
           <Divider></Divider>
